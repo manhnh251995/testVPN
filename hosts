@@ -1,0 +1,45 @@
+[lb]
+SVR.lb2_192.168.17.211   ansible_ssh_host=192.168.17.211
+
+[influxdb]
+SVR.influx_192.168.17.104  ansible_ssh_host=192.168.17.104
+SVR.influx_192.168.17.21  ansible_ssh_host=192.168.17.21
+#SVR.influx_192.168.17.101  ansible_ssh_host=192.168.17.101
+SVR.influx_192.168.17.199  ansible_ssh_host=192.168.17.199
+
+
+[smokeping-lan]
+SVR.telegraf_192.168.17.101  ansible_ssh_host=192.168.17.101
+SVR.telegraf_192.168.17.21  ansible_ssh_host=192.168.17.21
+SVR.telegraf_192.168.17.216  ansible_ssh_host=192.168.17.216
+SVR.influx_192.168.17.104  ansible_ssh_host=192.168.17.104
+SVR.influx_192.168.17.199  ansible_ssh_host=192.168.17.199
+SVR.influx_192.168.17.60  ansible_ssh_host=192.168.17.60
+
+[grafana]
+SVR.influx_192.168.17.104  ansible_ssh_host=192.168.17.104
+
+[smokeping]
+SVR.smokeping_192.168.17.104  ansible_ssh_host=192.168.17.104
+
+[sshd]
+SVR.telegraf_192.168.17.21  ansible_ssh_host=192.168.17.21
+SVR.influx_192.168.17.60  ansible_ssh_host=192.168.17.60
+
+[nagios]
+SVR.influx_192.168.17.199  ansible_ssh_host=192.168.17.199
+#SVR.smokeping_192.168.17.104  ansible_ssh_host=192.168.17.104
+
+[icinga2]
+SVR.smokeping_192.168.17.106  ansible_ssh_host=192.168.17.106
+
+[gmetad]
+SVR.smokeping_192.168.17.123  ansible_ssh_host=192.168.17.123
+SVR.smokeping_192.168.17.154  ansible_ssh_host=192.168.17.154
+SVR.smokeping_192.168.17.213  ansible_ssh_host=192.168.17.213
+SVR.smokeping_192.168.17.216  ansible_ssh_host=192.168.17.216
+SVR.smokeping_192.168.17.28  ansible_ssh_host=192.168.17.28
+SVR.smokeping_192.168.17.140  ansible_ssh_host=192.168.17.140
+
+[VPN]
+VPN_SiteA_192.168.17.103 ansible_ssh_host=192.168.17.103

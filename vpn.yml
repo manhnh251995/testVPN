@@ -1,0 +1,8 @@
+- name: vpn
+  hosts: all
+  become: yes
+  gather_facts: no
+  remote_user: manhnh
+  become_method: sudo
+  roles:
+  - VPN

@@ -1,0 +1,52 @@
+vrrp_sync_group VG_1 {
+    group {
+        LAN_1
+        WAN_1
+    }
+    notify_backup /etc/keepalived/backup.sh
+    notify_master /etc/keepalived/master.sh
+    notify_fault /etc/keepalived/backup.sh
+}
+
+vrrp_instance WAN_1 {
+    state MASTER
+    interface ens33
+    virtual_router_id 10
+    dont_track_primary
+    priority 100
+    preempt_delay 30
+    garp_master_delay 1
+    advert_int 2
+    authentication {
+        auth_type PASS
+        auth_pass dd9Mke2L2DNX
+    }
+    track_interface {
+        ens33
+    }
+    virtual_ipaddress {
+        192.168.17.200/24 dev ens33
+    }
+}
+
+vrrp_instance LAN_1 {
+    state MASTER
+    interface ens38
+    virtual_router_id 20:
+    dont_track_primary
+    priority 100
+    preempt_delay 30
+    garp_master_delay 1
+    advert_int 2
+    authentication {
+        auth_type PASS
+        auth_pass dd9Mke2L2DNX
+    }
+    track_interface {
+        ens38
+    }
+    virtual_ipaddress {
+        10.0.0.1/24 dev ens38
+    }
+}
+

@@ -1,0 +1,39 @@
+---
+- name: Check keepalived install
+  command: dpkg-query -W keepalived
+  register: keepalived_check_deb
+  failed_when: keepalived_check_deb.rc > 1
+  changed_when: keepalived_check_deb.rc == 1
+
+- name: Install KeepAlived
+  shell: apt-get install keepalived=1:1.2.19-1 -y 
+
+- name: telegraf - gen config file
+  template: >
+    src="keepalived.j2"
+    dest=/etc/keepalived/keepalived.conf
+    owner=root
+    group=root
+    mode=0644
+  tags: gen_config
+  notify: restart keepalived
+
+- name: Copy scirpt ha master
+  template:
+    src="master.sh"
+    dest=/etc/keepalived/master.sh
+    owner=root
+    group=root
+    mode=0755
+  notify: restart keepalived 	
+
+- name: Copy script ha backup.sh
+  template:
+    src="backup.sh"
+    dest=/etc/keepalived/backup.sh
+    owner=root
+    group=root
+    mode=0755
+  notify: restart keepalived
+
+
